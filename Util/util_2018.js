@@ -1,4 +1,9 @@
-'use strict'
+/*
+	Author: stavzog,
+	Name: Util.js
+	Do you like it?
+	tell me in the issues tab!
+*/
 
 var utilities = {
 	nxtDay: ()=> {
