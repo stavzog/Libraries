@@ -1,7 +1,8 @@
 
 window.onerror = function(error) {
-  // do something clever here
-  console.log('Make sure that your <script></script> tag is *below* your <s-html></s-html> tag!') // do NOT do this for real!
+  if (error.split(' ')[1] === 'DOMException:') {
+  	console.warn('Make sure that your <script></script> tag below your <s-html></s-html> tag!')
+  }
 };
 class SHTML {
 	constructor() { 
@@ -67,13 +68,19 @@ class SHTML {
 }
 
 class SHTMLelement extends HTMLElement {
-	constructor() {
+	constructor(header=true) {
 		super();
-		this.setAttribute('style','width:100%;height:100%;background:#eee;margin:0;padding:0;')
-		let d = document.createElement('div');
-		d.setAttribute(`style`,`border-bottom:2px solid #d8d8d8;text-align:center;`);
-		d.innerHTML = `<h1 style='font-fmily:sans-serif;font-size:2em;'>Doc (Simple-HTML)</h1>`
-		this.appendChild(d);
+		this.user_html = this.innerHTML;
+		this.innerHTML = '';
+		if (header) {
+			this.setAttribute('style','width:100%;height:100%;background:#eee;margin:0;padding:0;')
+			let d = document.createElement('div');
+			d.setAttribute(`style`,`border-bottom:2px solid #d8d8d8;text-align:center;`);
+			d.innerHTML = `<h1 style='font-fmily:sans-serif;font-size:2em;'>Doc (Simple-HTML)</h1>`
+			this.appendChild(d);
+		}
+		this.innerHTML += `<h3 style="font-fmily:sans-serif;text-align:center">${this.user_html}</h3>`;
+
 
 	}
 	create(html) {
