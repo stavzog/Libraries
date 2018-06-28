@@ -79,7 +79,7 @@ class SHTMLelement extends HTMLElement {
 			d.innerHTML = `<h1 style='font-fmily:sans-serif;font-size:2em;'>Doc (Simple-HTML)</h1>`
 			this.appendChild(d);
 		}
-		this.innerHTML += `<h3 style="font-fmily:sans-serif;text-align:center">${this.user_html}</h3>`;
+		this.innerHTML += `<div style="font-fmily:sans-serif;text-align:center;font-size:1em">${this.user_html}</div>`;
 
 
 	}
