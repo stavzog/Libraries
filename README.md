@@ -1,3 +1,3 @@
 # JS Libraries
 ---
-This repository will contain all my libraries.
+two simple javascript library ideas
